@@ -31,7 +31,7 @@ public class ListReverse
 
 	    // Move prev2 and prev1 one step down the linked list
 	    
-	    // Prev1's link has been reversed and it is the new head of the reversed list
+	    // prev1's link has been reversed and it is the new head of the reversed list
 	    prev2 = prev1;
 	    
 	    // And the current is the new head of the not-reversed list
