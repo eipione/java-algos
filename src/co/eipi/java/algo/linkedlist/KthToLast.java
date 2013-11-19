@@ -11,8 +11,8 @@ public class KthToLast
 	Node ptr = head;
 	Node ret = head;
 
-	// Advance ptr by K steps
-	for (int i = 0; i < k; i++)
+	// Advance ptr by K -1 steps
+	for (int i = 0; i < k -1; i++)
 	{
 	    if (ptr == null)
 		return null;

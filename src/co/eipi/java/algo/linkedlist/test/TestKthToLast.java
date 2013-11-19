@@ -22,13 +22,13 @@ public class TestKthToLast
 
 	for (int i = 0; i < randList.size(); i++)
 	{
-	    int k = randList.size() - i - 1;
+	    int k = randList.size() - i ;
 	    Integer expectedValue = randList.get(i);
 	    Integer actualValue = KthToLast.find(head, k).data;
 	    Assert.assertEquals(expectedValue, actualValue);
 	}
 	
-	Assert.assertNull(KthToLast.find(head, randList.size()));
-	Assert.assertNull(KthToLast.find(head, randList.size() + new Random().nextInt(10)));
+	Assert.assertNull(KthToLast.find(head, randList.size()+ 1));
+	Assert.assertNull(KthToLast.find(head, randList.size() + 1+ new Random().nextInt(10)));
     }
 }
