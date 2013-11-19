@@ -77,6 +77,31 @@ public class LinkedList
 	}
 	return head;
     }
+    
+    /**
+     * 
+     * @param head
+     * @return the tail
+     */
+    public static Node getTail(Node head)
+    {
+	while(head.next !=null)
+	{
+	    head = head.next;
+	}
+	
+	return head;
+    }
+    
+    public static Node getNth(Node head,int n)
+    {
+	for(int i=0;i<n && head!=null;i++)
+	{
+	    head = head.next;
+	}
+	
+	return head;
+    }
 
     /**
      * Create a list of integer from the given node to null
