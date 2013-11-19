@@ -46,6 +46,37 @@ public class LinkedList
 	return head;
 
     }
+    
+    /**
+     * Delete the first occurrence of the given data value
+     * @param data
+     * @return new Head (because the head might change)
+     */
+    public static Node deleteNode(Node head,int data)
+    {
+	if (head == null) return head;
+	if (head.data == data)
+	{
+	    head = head.next;
+	}
+	else
+	{
+	    Node prev = head;
+	    Node temp = head.next;
+	    
+	    while(temp != null)
+	    {
+		if (temp.data == data)
+		{
+		   prev.next = temp.next; 
+		   break;
+		}
+		prev = temp;
+		temp = temp.next;
+	    }
+	}
+	return head;
+    }
 
     /**
      * Create a list of integer from the given node to null
