@@ -1,6 +1,6 @@
 package co.eipi.java.algo.stack;
 
-public class Stack<T>
+public class Stack<T> implements IStack<T>
 {
 
     public static class Node<U>
@@ -16,6 +16,7 @@ public class Stack<T>
 	
     }
     
+    @Override
     public void push(T data)
     {
 	Node<T> newNode = new Node<T>();
@@ -24,6 +25,7 @@ public class Stack<T>
 	top = newNode;
     }
     
+    @Override
     public T pop()
     {
 	if (top !=null)
@@ -35,11 +37,13 @@ public class Stack<T>
 	return null;
     }
     
+    @Override
     public boolean isEmpty()
     {
 	return top == null; 
     }
     
+    @Override
     public T peek()
     {
 	return top == null ? null : top.data;

@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import co.eipi.java.algo.stack.IStack;
 import co.eipi.java.algo.stack.Stack;
 import co.eipi.java.algo.test.TestUtils;
 
@@ -16,7 +17,7 @@ public class TestStack
     {
 	List<Integer> numbers = TestUtils.genRandomList(100, 1000);
 	
-	Stack<Integer> stack = new Stack<Integer>();
+	IStack<Integer> stack = new Stack<Integer>();
 	
 	for(Integer number:numbers)
 	{
