@@ -4,8 +4,8 @@ import co.eipi.java.algo.stack.Stack;
 
 public class QueueOfStacks<T> implements IQueue<T>
 {
-    private Stack<T> mainStack = new Stack<T>();
-    private Stack<T> reverseStack = new Stack<T>();
+    private final Stack<T> mainStack = new Stack<T>();
+    private final Stack<T> reverseStack = new Stack<T>();
     
     @Override
     public void enqueue(T data)
