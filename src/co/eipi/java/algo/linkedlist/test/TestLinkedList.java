@@ -18,7 +18,7 @@ public class TestLinkedList
     @Test
     public void testCreateAndGet()
     {
-	List<Integer> randList = TestUtils.genRandomArray(100, 1000);
+	List<Integer> randList = TestUtils.genRandomList(100, 1000);
 	Node head = LinkedList.createList(randList);
 	List<Integer> retList = LinkedList.getDataList(head);
 	Assert.assertEquals(randList, retList);
@@ -27,7 +27,7 @@ public class TestLinkedList
     @Test
     public void testDeleteNodeFirstElement()
     {
-	List<Integer> randList = TestUtils.genRandomArray(100, 1000);
+	List<Integer> randList = TestUtils.genRandomList(100, 1000);
 	Node head = LinkedList.createList(randList);
 
 	Integer firstElement = randList.remove(0);

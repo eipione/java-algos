@@ -17,7 +17,7 @@ public class TestKthToLast
     @Test
     public void testKthToLast()
     {
-	List<Integer> randList = TestUtils.genRandomArray(10, 10000);
+	List<Integer> randList = TestUtils.genRandomList(10, 10000);
 	Node head = LinkedList.createList(randList);
 
 	for (int i = 0; i < randList.size(); i++)

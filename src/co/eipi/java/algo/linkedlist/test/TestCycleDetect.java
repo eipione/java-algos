@@ -17,7 +17,7 @@ public class TestCycleDetect
     @Test
     public void testCycleDetect()
     {
-	List<Integer> randList = TestUtils.genRandomArray(100, 1000);
+	List<Integer> randList = TestUtils.genRandomList(100, 1000);
 	Node head = LinkedList.createList(randList);
 
 	Node tail = LinkedList.getTail(head);
@@ -37,7 +37,7 @@ public class TestCycleDetect
     @Test
     public void testNoCycle()
     {
-	List<Integer> randList = TestUtils.genRandomArray(100, 1000);
+	List<Integer> randList = TestUtils.genRandomList(100, 1000);
 	Node head = LinkedList.createList(randList);
 
 	Node cycleHead = CycleDetect.detect(head);

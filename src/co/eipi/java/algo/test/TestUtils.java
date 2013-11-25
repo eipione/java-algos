@@ -16,7 +16,7 @@ public class TestUtils
      * @param max
      * @return
      */
-    public static List<Integer> genRandomArray(int size,int max)
+    public static List<Integer> genRandomList(int size,int max)
     {
 	// Specify the size since in this case we know it
 	List<Integer> retList = new ArrayList<Integer>(size);
