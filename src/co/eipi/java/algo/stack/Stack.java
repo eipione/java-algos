@@ -48,4 +48,19 @@ public class Stack<T> implements IStack<T>
     {
 	return top == null ? null : top.data;
     }
+    
+    @Override
+    public String toString()
+    {
+	Node<T> temp = top;
+	StringBuilder sb = new StringBuilder();
+	while (temp != null)
+	{
+	    sb.append(temp.data);
+	    if (temp.next != null)
+		sb.append("->");
+	    temp = temp.next;
+	}
+	return sb.toString();
+    }
 }
