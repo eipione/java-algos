@@ -1,6 +1,6 @@
 package co.eipi.java.algo.queue;
 
-public class Queue<T>
+public class Queue<T> implements IQueue<T>
 {
 
     public static class Node<U>
@@ -17,6 +17,7 @@ public class Queue<T>
 
     }
 
+    @Override
     public void enqueue(T data)
     {
 
@@ -36,6 +37,7 @@ public class Queue<T>
 
     }
 
+    @Override
     public T dequeue()
     {
 	if (first!= null)
@@ -48,6 +50,7 @@ public class Queue<T>
 	return null;
     }
 
+    @Override
     public T peek()
     {
 	return first == null ? null : first.data;
