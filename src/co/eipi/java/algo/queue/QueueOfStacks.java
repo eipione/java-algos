@@ -37,4 +37,12 @@ public class QueueOfStacks<T> implements IQueue<T>
 	reorg();
 	return reverseStack.peek();
     }
+
+    @Override
+    public boolean isEmpty()
+    {
+	return peek() == null;
+    }
+    
+   
 }

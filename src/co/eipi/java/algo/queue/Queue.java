@@ -55,4 +55,11 @@ public class Queue<T> implements IQueue<T>
     {
 	return first == null ? null : first.data;
     }
+    
+    @Override
+    public boolean isEmpty()
+    {
+	return first == null;
+    }
+    
 }

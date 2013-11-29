@@ -8,5 +8,7 @@ public interface IQueue<T>
     T dequeue();
 
     T peek();
+    
+    boolean isEmpty();
 
 }
