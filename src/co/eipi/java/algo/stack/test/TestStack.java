@@ -24,6 +24,8 @@ public class TestStack
 	    stack.push(number);
 	}
 	
+	stack.toString();
+	
 	for(int i=numbers.size() -1;i>=0;i--)
 	{
 	    Assert.assertEquals(numbers.get(i), stack.peek());
@@ -32,5 +34,6 @@ public class TestStack
 	
 	Assert.assertNull(stack.peek());
 	Assert.assertNull(stack.pop());
+	
     }
 }

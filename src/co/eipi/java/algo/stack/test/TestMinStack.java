@@ -22,6 +22,7 @@ public class TestMinStack
 	}
 	return Collections.min(newList);
     }
+    
 
     @Test
     public void testStack()
@@ -48,5 +49,7 @@ public class TestMinStack
 	Assert.assertNull(stack.peek());
 	Assert.assertNull(stack.pop());
 	Assert.assertNull(stack.min());
+	Assert.assertTrue(stack.isEmpty());
+	stack.toString();
     }
 }
