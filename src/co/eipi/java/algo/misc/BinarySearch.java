@@ -14,7 +14,7 @@ public class BinarySearch
 	int hi = a.length - 1;
 	while (lo <= hi)
 	{
-	    int mid = lo + (hi - lo) / 2;
+	    int mid = (hi + lo) / 2;
 	    if (key < a[mid])
 		hi = mid - 1;
 	    else if (key > a[mid])
@@ -22,15 +22,15 @@ public class BinarySearch
 	    else
 		return mid;
 	}
-
-	return -1;
+	System.out.println(hi);
+	return lo;
     }
 
     public static void runTest1()
     {
 	int[] randomArray = new int[]{1,4,6,7,10,34,89,500,629};
 
-	int key = 34;
+	int key = 67;
 
 	int loc = binSearch(key, randomArray);
 
@@ -56,6 +56,6 @@ public class BinarySearch
     public static void main(String args[])
     {
 	runTest1();
-	runTest2();
+	//runTest2();
     }
 }
