@@ -13,7 +13,7 @@ public class QuickUnion implements UnionFind{
 	
 	@Override
 	public void union(int p, int q) {
-		// p's root becomes a child of q
+		// q's root becomes the parent of q's root
 		nodes[root(p)] = root(q);
 				
 	}

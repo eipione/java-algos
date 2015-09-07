@@ -5,7 +5,7 @@ import org.junit.Test;
 
 
 
-public class TestQuickUnion extends AbstractTestUnionFind {
+public class QuickUnionTest extends AbstractTestUnionFind {
 
 	@Override
 	protected QuickUnion getUF() {
@@ -18,9 +18,9 @@ public class TestQuickUnion extends AbstractTestUnionFind {
 		uf.union(1, 2);
 		uf.union(2, 5);
 		
-		Assert.assertEquals("Root of 2",uf.root(2),5);
-		Assert.assertEquals("Root of 1",uf.root(2),5);
-		Assert.assertEquals("Root of 5",uf.root(2),5);
+		Assert.assertEquals("Root of 2",5,uf.root(1));
+		Assert.assertEquals("Root of 1",5,uf.root(1));
+		Assert.assertEquals("Root of 5",5, uf.root(5));
 
 	}
 	
