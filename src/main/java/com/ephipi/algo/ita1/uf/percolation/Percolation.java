@@ -1,5 +1,6 @@
 package com.ephipi.algo.ita1.uf.percolation;
 
+
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
@@ -67,6 +68,7 @@ public class Percolation {
      * @return is site (row i, column j) open?
      */
     public boolean isOpen(int i, int j) {
+        checkIndices(i, j);
         return openSites[location(i, j)];
     }
 
@@ -77,6 +79,7 @@ public class Percolation {
      * @return is site (row i, column j) full?
      */
     public boolean isFull(int i, int j) {
+        checkIndices(i, j);
         return isOpen(i, j) && isConnectedToTop(i, j);
     }
 

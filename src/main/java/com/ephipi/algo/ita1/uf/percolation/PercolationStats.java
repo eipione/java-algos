@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    
+
     private static final double Z_STAT = 1.96;
     private final double mean;
     private final double stddev;
@@ -18,14 +18,16 @@ public class PercolationStats {
      * @param T
      */
     public PercolationStats(int N, int T) {
-        if (N<=0 || T <=0) throw new IllegalArgumentException("Both N and T should be positive");
+        if (N <= 0 || T <= 0)
+            throw new IllegalArgumentException(
+                    "Both N and T should be positive");
         double[] probs = new double[T];
         int N2 = N * N;
-        for(int i=0;i<T;i++){
+        for (int i = 0; i < T; i++) {
             int count = countWhenSystemPercolates(N);
             probs[i] = (double) count / (double) N2;
         }
-        
+
         this.mean = StdStats.mean(probs);
         this.stddev = StdStats.stddev(probs);
         this.confidenceLo = mean - Z_STAT * stddev / Math.sqrt(T);
@@ -35,12 +37,12 @@ public class PercolationStats {
     private int countWhenSystemPercolates(int N) {
         Percolation perc = new Percolation(N);
         int count = 0;
-        while (!perc.percolates()){
+        while (!perc.percolates()) {
             int row = StdRandom.uniform(N) + 1;
             int column = StdRandom.uniform(N) + 1;
-            if (!perc.isOpen(row, column)){
+            if (!perc.isOpen(row, column)) {
                 perc.open(row, column);
-                count ++;
+                count++;
             }
         }
         return count;
@@ -88,14 +90,15 @@ public class PercolationStats {
     }
 
     // test client (described below)
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int N = Integer.parseInt(args[0]);
         int T = Integer.parseInt(args[1]);
         int l = "95% confidence interval".length();
         PercolationStats stats = new PercolationStats(N, T);
-        System.out.println(padRight("mean",l) +" = " + stats.mean());
-        System.out.println(padRight("stddev",l) +" = " + stats.stddev());
-        System.out.println(padRight("95% confidence interval",l) +" = " + stats.confidenceLo()+" , " + stats.confidenceHi());
+        System.out.println(padRight("mean", l) + " = " + stats.mean());
+        System.out.println(padRight("stddev", l) + " = " + stats.stddev());
+        System.out.println(padRight("95% confidence interval", l) + " = "
+                + stats.confidenceLo() + " , " + stats.confidenceHi());
     }
 
 }
