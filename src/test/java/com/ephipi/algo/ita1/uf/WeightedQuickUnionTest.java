@@ -21,7 +21,7 @@ public class WeightedQuickUnionTest extends AbstractTestUnionFind{
 		Assert.assertEquals("Root of 2",1,uf.root(2));
 		Assert.assertEquals("Root of 1",1,uf.root(1));
 		Assert.assertEquals("Root of 5",1, uf.root(5));
-
-
 	}
+	
+	
 }

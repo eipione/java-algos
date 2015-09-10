@@ -1,13 +1,13 @@
 package com.ephipi.algo.ita1.uf.percolation;
 
 
-import edu.princeton.cs.algs4.WeightedQuickUnionUF;
+import com.ephipi.algo.ita1.uf.WeightedQuickUnion;
 
 public class Percolation {
 
     private final int N;
     private final boolean[] openSites;
-    private final WeightedQuickUnionUF uf;
+    private final WeightedQuickUnion uf;
     private final int virtualStartLoc;
     private final int virtualEndLoc;
 
@@ -23,7 +23,7 @@ public class Percolation {
         this.N = N;
         int size = (N + 1) * (N + 1);
         this.openSites = new boolean[size];
-        this.uf = new WeightedQuickUnionUF(size);
+        this.uf = new WeightedQuickUnion(size);
         this.virtualStartLoc = location(0, 0);
         this.virtualEndLoc = location(N, 0);
 

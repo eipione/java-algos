@@ -2,6 +2,7 @@ package com.ephipi.algo.ita1.uf.percolation;
 
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
+import edu.princeton.cs.algs4.Stopwatch;
 
 public class PercolationStats {
 
@@ -32,6 +33,7 @@ public class PercolationStats {
         this.stddev = StdStats.stddev(probs);
         this.confidenceLo = mean - Z_STAT * stddev / Math.sqrt(T);
         this.confidenceHi = mean + Z_STAT * stddev / Math.sqrt(T);
+
     }
 
     private int countWhenSystemPercolates(int N) {
@@ -91,6 +93,8 @@ public class PercolationStats {
 
     // test client (described below)
     public static void main(String[] args) {
+        Stopwatch watch = new Stopwatch();
+
         int N = Integer.parseInt(args[0]);
         int T = Integer.parseInt(args[1]);
         int l = "95% confidence interval".length();
@@ -99,6 +103,9 @@ public class PercolationStats {
         System.out.println(padRight("stddev", l) + " = " + stats.stddev());
         System.out.println(padRight("95% confidence interval", l) + " = "
                 + stats.confidenceLo() + " , " + stats.confidenceHi());
+
+        System.out.println("Done in " + watch.elapsedTime() + "s");
+
     }
 
 }

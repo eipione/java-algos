@@ -1,31 +1,33 @@
 package com.ephipi.algo.ita1.uf;
 
 
-public class WeightedQuickUnion implements UnionFind {
+public class WeightedQuickUnionLargeLeader implements UnionFind {
 
-	final int[] ids;
+	private final int[] ids;
 	private final int[] sizes;
-	boolean pathCompression = false;
+	private final int[] largest;
+	boolean pathCompression = true;
 	private int count;
 
-	public WeightedQuickUnion(int n) {
+	public WeightedQuickUnionLargeLeader(int n) {
 		this.ids = new int[n];
 		this.sizes = new int[n];
+		this.largest = new int[n];
 		for (int i = 0; i < n; i++) {
 			ids[i] = i;
 			sizes[i] = 1;
+			largest[i] = i;
 		}
-		count = n;
+		this.count = n;
 	}
 
 	@Override
 	public void union(int p, int q) {
-		// q's root becomes the parent of p
 		int rootOfPtree = root(p);
 		int rootOfQTree = root(q);
 		
-		if (rootOfPtree == rootOfQTree) return;
-		
+	    if (rootOfPtree == rootOfQTree) return;
+	    
 		int parent;
 		int child;
 		if (getSize(rootOfPtree) >= getSize(rootOfQTree)) {
@@ -37,9 +39,9 @@ public class WeightedQuickUnion implements UnionFind {
 		}
 
 		setParent(child, parent);
+		setMax(parent, Math.max(getMax(parent), getMax(child)));
 		setSize(parent, getSize(parent) + getSize(child));
-		
-		count --;
+		count--;
 	}
 
 	@Override
@@ -49,21 +51,8 @@ public class WeightedQuickUnion implements UnionFind {
 
 	@Override
 	public int find(int p) {
-		return root(p);
+		return largest[root(p)];
 	}
-	
-
-    int root(int p) {
-        int loc = p;
-        while (ids[p] != p) {
-            p = ids[p];
-        }
-        if (pathCompression) {
-            flatten(loc, p);
-        }
-        return p;
-    }
-
 
 	@Override
 	public int count() {
@@ -88,13 +77,32 @@ public class WeightedQuickUnion implements UnionFind {
 		return ht;
 	}
 
+	int root(int p) {
+		int loc = p;
+		while (ids[p] != p) {
+			p = ids[p];
+		}
+		if (pathCompression) {
+			flatten(loc, p);
+		}
+		return p;
+	}
+
 	int getParent(int child) {
 		return ids[child];
 	}
+	
+	int getMax(int location) {
+        return largest[location];
+    }
 
 	private void setParent(int child, int parent) {
 		ids[child] = parent;
 	}
+	
+	private void setMax(int location, int max) {
+        largest[location] = max;
+    }
 
 	int getSize(int p) {
 		return sizes[p];
